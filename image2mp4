@@ -1,0 +1,7 @@
+# Actual recommended video dimensions are: 
+# 426 x 240 (240p), 640 x 360 (360p), 854 x 480 (480p),
+# 1280 x 720 (720p), 1920 x 1080 (1080p), 
+# 2560 x 1440 (1440p) and 3840 x 2160 (2160p)
+# streaming option -movflags +faststart
+
+/usr/local/Cellar/video/ffmpeg/bin/ffmpeg -r 9 -f image2 -s 1920x1080 -pattern_type glob -i 'HSD_20161114_*.png' -vcodec libx264 -crf 25 -pix_fmt yuv420p test.mp4

@@ -1,0 +1,9 @@
+$Id. To join several video into one use following known working command
+
+# concat is a file with list of videos, which is want to be join
+# sample content of concat file
+# file ME3018_MESO_Minggu04_RAW-CUT01.mp4
+# file ME3018_MESO_Minggu04_RAW-CUT02.mp4
+# file ME3018_MESO_Minggu04_RAW-CUT04.mp4
+ 
+ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -f concat -i concat -max_muxing_queue_size 9999 -c copy ME3018_MESO_Minggu04_RAW-CUT.mp4

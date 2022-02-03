@@ -1,0 +1,42 @@
+# $Id. Create chapter in mp4 movie
+
+# #Step 1.
+# Copy metadata
+# This command will copy movie metadata
+# Good start, so we no need to make file from scratch
+
+ffmpeg -i input_file -f ffmetadata ffmetadata_file
+
+# #Step 2.
+# Edit metadata 
+# Following the format
+# Note: TIMEBASE unit num/den = 1/1 means in second
+#       TIMEBASE 1/1000 means in microsecond
+# Example format
+# $EXAMPLE BEGIN
+#;FFMETADATA1
+#title=bike\\shed
+#;this is a comment
+#artist=FFmpeg troll team
+# Example compute length of video
+# from datetime import timedelta                                          
+# x = '01:32:59.20'                                                       
+# h,m,s=map(float, x.split(':'))                                          
+# res = timedelta(hours=h,minutes=m,seconds=s).total_seconds() * 1000     
+
+#[CHAPTER]
+#TIMEBASE=1/1000
+#START=0
+##chapter ends at 0:01:00
+#END=60000
+#title=chapter \#1
+#[STREAM]
+#title=multi\
+#line
+# $EXAMPLE END
+#
+# #Step 3.
+# Reinserting edited metadata can be done as
+
+ffmpeg -i input_file -i ffmetadata_file -map_metadata 1 -codec copy output_file
+

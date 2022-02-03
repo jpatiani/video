@@ -1,0 +1,1 @@
+/usr/local/Cellar/video/ffmpeg/bin/ffmpeg -i input.mp4 -vn -acodec copy output.wav

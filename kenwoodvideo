@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#Constant Bit Rate
+#You can target a bitrate with -b:v. This is best used with two-pass encoding. Adapting an example from the x264 encoding guide: your video is 10 minutes (600 seconds) long and an output of 50 MB is desired. Since bitrate = file size / duration:
+
+#(50 MB * 8192 [converts MB to kilobits]) / 600 seconds = ~683 kilobits/s total bitrate
+#683k - 128k (desired audio bitrate) = 555k video bitrate
+
+#Two-pass example 
+
+ffmpeg -y -i input.avi -c:v mpeg4 -vtag xvid -b:v 555k -s 720x480 -pass 1 -an -f avi /dev/null
+ffmpeg -i input.avi -c:v mpeg4 -vtag xvid -b:v 555k -s 720x480 -pass 2 -c:a libmp3lame -b:a 128k output.avi

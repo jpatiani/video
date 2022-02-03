@@ -1,0 +1,6 @@
+# $Id. Nikon AVI
+# make color more vivid
+# -vf eq=gamma=1.5:saturation=1.3
+# streaming option -movflags +faststart
+ 
+/usr/local/Cellar/video/ffmpeg/bin/ffmpeg -i DSC_0769.AVI -vcodec h264 -pix_fmt yuv420p rawtari.mp4

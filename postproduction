@@ -1,0 +1,3 @@
+$Id. Convert final result from Filmora output
+
+ffmpeg -i ~/Movies/Wondershare\ Filmora9/Output/MPCN1_intermediet.m01s01.mp4 -c:v libx264 -crf 19 -movflags +faststart MPCN1_m01s01.mp4
