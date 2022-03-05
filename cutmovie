@@ -1,4 +1,5 @@
 #Synopsis: ffmpeg -i [input_file] -ss [start_seconds] -t [duration_seconds] [output_file]
+# use -to to specify end-time parameter
 
 # omit -t for end of time
 #
