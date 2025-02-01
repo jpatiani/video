@@ -12,3 +12,8 @@
 # the error include but not limited to
 # FFMPEG: Too many packets buffered for output stream 0:1
 # ffmpeg conversion failed 2 frames left in the queue on closing
+# 
+## Note for 360 video
+# use this example
+# ffmpeg -i ../\[20250129\]Start\ 08\ GS010929.mp4 -ss 00:00:12 -t 00:00:03 -c copy -strict unofficial 09.mp4
+# add -strict unofficial
